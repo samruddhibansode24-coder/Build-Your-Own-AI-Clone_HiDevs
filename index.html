@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>My Chatbot (Demo)</title>
+</head>
+<body>
+  <h1>Chatbot Demo</h1>
+  <p>This is a static frontend hosted on GitHub Pages.</p>
+
+  <!-- Example chat area (static) -->
+  <div id="chat" style="border:1px solid #ccc;padding:10px;width:320px;height:300px;overflow:auto"></div>
+
+  <!-- Example input -->
+  <input id="msg" placeholder="Type message..." style="width:240px"/>
+  <button onclick="send()">Send</button>
+
+  <script>
+    function add(text){ const d=document.getElementById('chat'); d.innerHTML += '<div>'+text+'</div>'; d.scrollTop=d.scrollHeight; }
+    function send(){
+      const t=document.getElementById('msg').value;
+      if(!t) return;
+      add('You: ' + t);
+      // If you had a backend API, you'd call it here.
+      // Example (uncomment & configure your API URL):
+      // fetch('https://your-backend.example.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({msg:t})})
+      //  .then(r=>r.json()).then(data=>add('Bot: '+data.reply)).catch(e=>add('Error: '+e));
+      add('Bot: (demo response) Hello!'); // placeholder
+      document.getElementById('msg').value='';
+    }
+  </script>
+</body>
+</html>
